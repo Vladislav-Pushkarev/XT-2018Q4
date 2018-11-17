@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Task1.Sequence", "Epam.Task1.Sequence\Epam.Task1.Sequence.csproj", "{E792E29E-F04F-442A-B636-E179D2FC0120}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E792E29E-F04F-442A-B636-E179D2FC0120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E792E29E-F04F-442A-B636-E179D2FC0120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E792E29E-F04F-442A-B636-E179D2FC0120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E792E29E-F04F-442A-B636-E179D2FC0120}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B7CB84A-632B-40AD-9F0D-2A61EDEFA9FE}
+	EndGlobalSection
+EndGlobal
