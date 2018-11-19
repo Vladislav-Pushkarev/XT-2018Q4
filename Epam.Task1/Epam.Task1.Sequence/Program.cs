@@ -22,6 +22,7 @@ namespace Epam.Task1.Sequence
         {
             int n;
 
+            Console.WriteLine("Enter N");
             n = int.Parse(Console.ReadLine()); //read N 
             PrintSequence(n);    //print Sequence up to N
         }
