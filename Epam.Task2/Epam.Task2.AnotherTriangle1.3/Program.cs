@@ -36,7 +36,6 @@ namespace Epam.Task2.AnotherTriangle1._3
             n = int.Parse(Console.ReadLine());
 
             Triangle(n);
-            Console.ReadLine();
         }
     }
 }

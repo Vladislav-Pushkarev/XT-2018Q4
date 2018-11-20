@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace Epam.Task2.Rectangle1._1
 {
-    
+        /* 
+         можно решить гораздо проще без создания класса, 
+         но условия задачи напрашиваются на класс ПРЯМОУГОЛЬНИК с полями.
+         Интересно ваше мнение о таком написании методов Гет Сет, как это лучше сделать,
+         на Java я бы написал так, как написал тут.  
+        */
     class Test
     {
+      
         static void Main(string[] args)
         {
             Rectangle rectangle = new Rectangle();
