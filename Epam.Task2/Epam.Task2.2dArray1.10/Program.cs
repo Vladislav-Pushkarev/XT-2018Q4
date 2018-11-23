@@ -11,13 +11,16 @@ namespace Epam.Task2._2dArray1._10
         public static int EvenSum(int[,] arr)
         {
             int sum = 0;
-            int i = 1;
-            int j = 1;
-            while (i < arr.GetLength(0) || j < arr.GetLength(1))
+            for (int i = 0; i < arr.GetLength(0); i++)
             {
-                sum += arr[i, j];
-                j += 2;
-                i += 2;
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    if ((i + j) % 2 == 0)
+                    {
+                        sum += arr[i, j];
+                        Console.WriteLine("i = {0}  j = {1}", i, j);
+                    }
+                }
             }
             return sum;
         }
