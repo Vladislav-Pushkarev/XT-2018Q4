@@ -9,21 +9,32 @@ public class Round
     private double lenght;
     private double area;
 
+    public Round(int coordX, int coordY, int r)
+    {
+        this.CoordX = coordX;
+        this.CoordY = coordY;
+        this.R = r;
+        count++;
+    }
 
     public static int Count { get => count; }
-    public int CoordX { get => coordX; set => coordX = value; }
-    public int CoordY { get => coordY; set => coordY = value; }
+
+    public int CoordX { get => this.coordX; set => this.coordX = value; }
+
+    public int CoordY { get => this.coordY; set => this.coordY = value; }
+
     public double R
     {
         get
         {
-            return r;
+            return this.r;
         }
+
         set
         {
             if (value > 0)
             {
-                r = value;
+                this.r = value;
             }
             else
             {
@@ -32,29 +43,23 @@ public class Round
         }
     }
 
-    public Round(int coordX, int coordY, int r)
-    {
-        CoordX = coordX;
-        CoordY = coordY;
-        R = r;
-        count++;
-    }
-
     public double Lenght()
     {
-        if (lenght == 0)
+        if (this.lenght == 0)
         {
-            lenght = 2 * Math.PI * r;
+            this.lenght = 2 * Math.PI * this.r;
         }
-        return lenght;
+
+        return this.lenght;
     }
 
     public double Area()
     {
-        if (area == 0)
+        if (this.area == 0)
         {
-            area = Math.PI * r * r;
+            this.area = Math.PI * this.r * this.r;
         }
-        return area;
+
+        return this.area;
     }
 }

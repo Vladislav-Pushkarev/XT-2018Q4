@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Epam.Task3.Round2._1
 {
-    class Program
+    public class Program
     {
         public static bool Compare(Round one, Round two)
         {
@@ -20,7 +20,7 @@ namespace Epam.Task3.Round2._1
             }
         }
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Round round1 = new Round(1, 2, 3);
             Round round2 = new Round(0, 0, 5);
@@ -36,7 +36,6 @@ namespace Epam.Task3.Round2._1
 
             Console.WriteLine("Total created {0} rounds", Round.Count);
             Console.WriteLine("First round bigger than second? - {0} ", Compare(round1, round2));
-
         }
     }
 }
