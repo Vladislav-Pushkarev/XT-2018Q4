@@ -33,57 +33,12 @@ namespace Epam.Task3.MyString2._4
             }
         }
 
-        public static MyString operator + (MyString firstStr, MyString secondStr)
-        {
-
-            int lenght = firstStr.myStr.Length + secondStr.myStr.Length;
-            char [] newCharArray = new char[lenght];
-            for (int i = 0; i < lenght; i++) 
-            {
-                for (int j = 0; j < lenght; j++) 
-                {
-                    newCharArray[i] = firstStr.myStr[j];
-                }
-                 for (int k = 0; k < lenght; k++) 
-                {
-                    newCharArray[i] = secondStr.myStr[k];
-                }
-
-            }
-            MyString newMyString = new MyString(newCharArray);
-            return newMyString;
-        }
-
-        public override bool Equals (Object strObj)
-        {
-            if (this == strObj)
-            {
-                return true;
-            }
-            if (strObj is MyString)
-            {
-                MyString anotherString = (MyString)strObj;
-                if (this.myStr.Length == anotherString.myStr.Length)
-                {
-                    for (int i = 0; i < this.Length; i++)
-                    {
-                        if (this.myStr[i] != anotherString.myStr[i])
-                        {
-                            return false;
-                        }
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public static bool operator == (MyString firstStr, MyString secondStr)
+        public static bool operator ==(MyString firstStr, MyString secondStr)
         {
             return firstStr.Equals(secondStr);
         }
 
-        public static bool operator != (MyString firstStr, MyString secondStr)
+        public static bool operator !=(MyString firstStr, MyString secondStr)
         {
             return !firstStr.Equals(secondStr);
         }
@@ -127,6 +82,54 @@ namespace Epam.Task3.MyString2._4
             }
         }
 
+        public static MyString operator +(MyString firstStr, MyString secondStr)
+        {
+            int lenght = firstStr.myStr.Length + secondStr.myStr.Length;
+            char[] newCharArray = new char[lenght];
+            for (int i = 0; i < lenght; i++) 
+            {
+                for (int j = 0; j < lenght; j++) 
+                {
+                    newCharArray[i] = firstStr.myStr[j];
+                }
+
+                 for (int k = 0; k < lenght; k++) 
+                {
+                    newCharArray[i] = secondStr.myStr[k];
+                }
+            }
+
+            MyString newMyString = new MyString(newCharArray);
+            return newMyString;
+        }
+
+        public override bool Equals(object strObj)
+        {
+     ////  styleCop =(
+     ////       if (this == strObj)
+     ////      {
+     ////           return true;
+     ////       }
+            if (strObj is MyString)
+            {
+                MyString anotherString = (MyString)strObj;
+                if (this.myStr.Length == anotherString.myStr.Length)
+                {
+                    for (int i = 0; i < this.Length; i++)
+                    {
+                        if (this.myStr[i] != anotherString.myStr[i])
+                        {
+                            return false;
+                        }
+                    }
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public override string ToString()
         {
             return new string(this.myStr);
@@ -156,6 +159,7 @@ namespace Epam.Task3.MyString2._4
             {
                 throw new IndexOutOfRangeException();
             }
+
             return this.myStr[index];
         }
 

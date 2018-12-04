@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Epam.Task3.MyString2._4
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             string one = "It’s better to be safe than sorry.";
             string oneCopy = "It’s better to be safe than sorry.";
@@ -35,8 +35,6 @@ namespace Epam.Task3.MyString2._4
             Console.WriteLine(MyString.Compare(myOne, myOneCopy));
             Console.WriteLine(MyString.Compare(myOne, myTwo));
             Console.WriteLine(MyString.Compare(myTwo, myOne));
-
-            Console.ReadLine();
         }
     }
 }
