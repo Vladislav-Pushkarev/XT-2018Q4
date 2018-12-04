@@ -6,22 +6,21 @@ using System.Threading.Tasks;
 
 namespace Epam.Task3.Ring2._6
 {
-    class Ring
+    public class Ring
     {
         private Round innerRound;
         private Round outerRound;
-        private double lenght;
 
-        public Ring(double coordX, double coordY, double rInner, double rOuter)
+        public Ring(int coordX, int coordY, int radiusInner, int radiusOuter)
         {
-            if (rOuter > rInner)
+            if (radiusOuter > radiusInner)
             {
-                this.InnerRound = new Round(coordX, coordYy, rInner);
-                this.OuterRound = new Round(coordX, coordYy, rOuter);
+                this.innerRound = new Round(coordX, coordY, radiusInner);
+                this.outerRound = new Round(coordX, coordY, radiusOuter);
             }
             else
             {
-                throw new ArgumentException("Outer radius cannot be smoller or equal to inner radius");
+                throw new ArgumentException("Outer radius cannot be smaller or equal to inner radius");
             }
         }
 
@@ -33,7 +32,7 @@ namespace Epam.Task3.Ring2._6
         {
            get 
            {
-                return this.innerRound() + this.outerRound.Length();
+                return this.innerRound.Length() + this.outerRound.Length();
            }
         }
 
@@ -41,7 +40,7 @@ namespace Epam.Task3.Ring2._6
         {
              get 
            {
-                this.outerRound.Area - this.innerRound.Area;
+               return this.outerRound.Area() - this.innerRound.Area();
            }
         }
     }
