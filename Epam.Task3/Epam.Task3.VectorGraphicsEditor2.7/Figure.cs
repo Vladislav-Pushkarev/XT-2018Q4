@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace Epam.Task3.VectorGraphicsEditor2._7
 {
-    class Shape
+    public abstract class Figure
     {
-        private static int count;
         private int coordX;
         private int coordY;
 
-        public Shape(int coordX, int coordY)
-        {
-            this.coordX = coordX;
-            this.coordY = coordY;
-        }
+        protected int CoordX { get => this.coordX; set => this.coordX = value; }
 
+        protected int CoordY { get => this.coordY; set => this.coordY = value; }
+
+        public abstract void Print();
     }
 }
