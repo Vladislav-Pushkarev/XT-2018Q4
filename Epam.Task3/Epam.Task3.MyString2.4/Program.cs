@@ -32,9 +32,9 @@ namespace Epam.Task3.MyString2._4
             Console.WriteLine(myOne.IndexOf('s'));
             Console.WriteLine(myOne.CharAt(3));
             Console.WriteLine("\tCompare demonstration:");
-            Console.WriteLine(MyString.Compare(myOne, myOneCopy));
-            Console.WriteLine(MyString.Compare(myOne, myTwo));
-            Console.WriteLine(MyString.Compare(myTwo, myOne));
+            Console.WriteLine(myOne.CompareTo(myOneCopy));
+            Console.WriteLine(myOne.CompareTo(myTwo));
+            Console.WriteLine(myTwo.CompareTo(myOne));
         }
     }
 }

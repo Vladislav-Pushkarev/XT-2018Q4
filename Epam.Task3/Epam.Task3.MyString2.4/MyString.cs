@@ -43,45 +43,6 @@ namespace Epam.Task3.MyString2._4
             return !firstStr.Equals(secondStr);
         }
 
-        public static int Compare(MyString firstStr, MyString secondStr)
-        {
-            int minLength = firstStr.Length <= secondStr.Length ? firstStr.Length : secondStr.Length;
-            for (int i = 0; i < minLength; i++)
-            {
-                if (firstStr.myStr[i] == secondStr.myStr[i])
-                {
-                    continue;
-                }
-                else
-                {
-                    if (firstStr.myStr[i] < secondStr.myStr[i])
-                    {
-                        return -1;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
-            }
-
-            if (firstStr.Length == secondStr.Length)
-            {
-                return 0;
-            }
-            else
-            {
-                if (firstStr.Length < secondStr.Length)
-                {
-                    return -1;
-                }
-                else
-                {
-                    return 1;
-                }
-            }
-        }
-
         public static MyString operator +(MyString firstStr, MyString secondStr)
         {
             int lenght = firstStr.myStr.Length + secondStr.myStr.Length;
@@ -101,6 +62,20 @@ namespace Epam.Task3.MyString2._4
 
             MyString newMyString = new MyString(newCharArray);
             return newMyString;
+        }
+
+        public int CompareTo(MyString secondStr)
+        {
+            int minLength = this.myStr.Length <= secondStr.Length ? this.myStr.Length : secondStr.Length;
+            for (int i = 0; i < minLength; i++)
+            {
+                if (this.myStr[i] != secondStr.myStr[i])
+                {
+                    return this.myStr[i] - secondStr.myStr[i];
+                }
+            }
+
+            return this.myStr.Length - secondStr.Length;
         }
 
         public override bool Equals(object strObj)
