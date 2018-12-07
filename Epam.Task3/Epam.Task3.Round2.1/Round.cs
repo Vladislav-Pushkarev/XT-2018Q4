@@ -19,9 +19,9 @@ public class Round
 
     public static int Count { get => count; }
 
-    public int CoordX { get => this.coordX; set => this.coordX = value; }
+    public int CoordX { get; set; }
 
-    public int CoordY { get => this.coordY; set => this.coordY = value; }
+    public int CoordY { get; set; }
 
     public double R
     {
@@ -43,23 +43,29 @@ public class Round
         }
     }
 
-    public double Lenght()
+    public double Lenght
     {
-        if (this.lenght == 0)
+        get
         {
-            this.lenght = 2 * Math.PI * this.r;
-        }
+            if (this.lenght == 0)
+            {
+                this.lenght = 2 * Math.PI * this.r;
+            }
 
-        return this.lenght;
+            return this.lenght;
+        }
     }
 
-    public double Area()
+    public double Area
     {
-        if (this.area == 0)
+        get
         {
-            this.area = Math.PI * this.r * this.r;
-        }
+            if (this.area == 0)
+            {
+                this.area = Math.PI * this.r * this.r;
+            }
 
-        return this.area;
+            return this.area;
+        }
     }
 }

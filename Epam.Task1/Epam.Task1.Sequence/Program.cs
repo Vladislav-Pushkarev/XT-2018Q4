@@ -8,14 +8,15 @@ namespace Epam.Task1.Sequence
 {
     class Program
     {
-
         public static void PrintSequence (int n)
         {
+            StringBuilder stringBuilder = new StringBuilder();
             for (int i = 1; i < n; i++)
             {
-                Console.Write(i + ", ");
+                stringBuilder.Append(i + ", ");
             }
-            Console.Write(n);
+            stringBuilder.Append(n);
+            Console.WriteLine(stringBuilder);
         }
 
         static void Main(string[] args)
@@ -23,8 +24,8 @@ namespace Epam.Task1.Sequence
             int n;
 
             Console.WriteLine("Enter N");
-            n = int.Parse(Console.ReadLine()); //read N 
-            PrintSequence(n);    //print Sequence up to N
+            n = int.Parse(Console.ReadLine()); 
+            PrintSequence(n);
         }
     }
 }

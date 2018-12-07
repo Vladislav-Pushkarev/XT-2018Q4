@@ -26,14 +26,15 @@ namespace Epam.Task1.IsSimpeNum
         static void Main(string[] args)
         {
             int n;
-            String str;
+            StringBuilder stringBuilder = new StringBuilder();
 
             while (true)
             {
             Console.WriteLine("Enter your number");
             n = int.Parse(Console.ReadLine());
-            str = IsSimpleNum(n) ? n + " - prime number" : n + " - not a prime number";
-            Console.WriteLine(str + "\n");
+                stringBuilder.Append(IsSimpleNum(n) ? n + " - prime number" : n + " - not a prime number");
+            Console.WriteLine(stringBuilder.AppendLine());
+                stringBuilder.Clear();
             }
         }
     }

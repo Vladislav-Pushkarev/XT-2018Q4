@@ -18,10 +18,6 @@ namespace Epam.Task3.VectorGraphicsEditor2._7
             this.R = 10;
         }
 
-        public int CoordX { get => this.CoordX; set => this.CoordX = value; }
-
-        public int CoordY { get => this.CoordY; set => this.CoordY = value; }
-
         public double R
         {
             get
@@ -42,14 +38,17 @@ namespace Epam.Task3.VectorGraphicsEditor2._7
             }
         }
 
-        public double Length()
+        public double Length
         {
-            if (this.length == 0)
+            get
             {
-                this.length = 2 * Math.PI * this.r;
-            }
+                if (this.length == 0)
+                {
+                    this.length = 2 * Math.PI * this.r;
+                }
 
-            return this.length;
+                return this.length;
+            }
         }
 
         public override void Print()

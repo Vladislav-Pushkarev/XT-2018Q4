@@ -26,16 +26,16 @@ namespace Epam.Task3.VectorGraphicsEditor2._7
             this.CoordX = coordX;
             this.CoordY = coordY;
             this.R = r;
-            this.Area();
-            this.Length();
+            this.area = this.Area;
+            this.length = this.Length;
             count++;
         }
 
-        public static int Count { get => count; }
+        public static int Count { get; }
 
-        public int CoordX { get => this.CoordX; set => this.CoordX = value; }
+        public int CoordX { get; set; }
 
-        public int CoordY { get => this.CoordY; set => this.CoordY = value; }
+        public int CoordY { get; set; }
 
         public double R
         {
@@ -57,24 +57,30 @@ namespace Epam.Task3.VectorGraphicsEditor2._7
             }
         }
 
-        public double Length()
+        public double Length
         {
-            if (this.length == 0)
+            get
             {
-                this.length = 2 * Math.PI * this.r;
-            }
+                if (this.length == 0)
+                {
+                    this.length = 2 * Math.PI * this.r;
+                }
 
-            return this.length;
+                return this.length;
+            }
         }
 
-        public double Area()
+        public double Area
         {
-            if (this.area == 0)
+            get
             {
-                this.area = Math.PI * this.r * this.r;
-            }
+                if (this.area == 0)
+                {
+                    this.area = Math.PI * this.r * this.r;
+                }
 
-            return this.area;
+                return this.area;
+            }
         }
 
         public override void Print()

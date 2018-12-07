@@ -105,21 +105,10 @@ namespace Epam.Task3.Employee2._5
             }
         }
 
-        public int Age
-        {
-            get
-            {
-                return this.age;
-            }
-        }
+        public int Age { get; }
 
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-        }
+        public int Id { get; }
+
 
         public override string ToString()
         {

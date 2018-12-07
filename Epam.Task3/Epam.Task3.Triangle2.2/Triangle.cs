@@ -30,7 +30,7 @@ namespace Epam.Task3.Triangle2._2
             }
         }
 
-        public static int Count { get => count; }
+        public static int Count { get; }
 
         public double SideA
         {

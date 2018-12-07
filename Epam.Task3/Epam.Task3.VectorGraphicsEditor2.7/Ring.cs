@@ -42,7 +42,7 @@ namespace Epam.Task3.VectorGraphicsEditor2._7
         {
             get
             {
-                return this.innerRound.Length() + this.outerRound.Length();
+                return this.innerRound.Length + this.outerRound.Length;
             }
         }
 
@@ -50,7 +50,7 @@ namespace Epam.Task3.VectorGraphicsEditor2._7
         {
             get
             {
-                return this.outerRound.Area() - this.innerRound.Area();
+                return this.outerRound.Area - this.innerRound.Area;
             }
         }
 

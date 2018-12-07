@@ -13,10 +13,10 @@ namespace Epam.Task2.Rectangle1._1
             Rectangle rectangle = new Rectangle();
 
             Console.WriteLine("Enter the length of A side of the rectangle");
-            rectangle.SetSideA (int.Parse(Console.ReadLine()));
+            rectangle.SideA = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Enter the length of B side of the rectangle");
-            rectangle.SetSideB(int.Parse(Console.ReadLine()));
+            rectangle.SideB = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Area of rectangle = {0}", rectangle.Area());
         }
@@ -26,42 +26,39 @@ namespace Epam.Task2.Rectangle1._1
             private int sideA;
             private int sideB;
 
-            public void SetSideA(int sideA)
+            public int SideA
             {
-                while (sideA <= 0)
+                get => sideA;
+                set
                 {
-                    Console.WriteLine("Incorrect value");
-                    Console.WriteLine("Enter the length of A side of the rectangle");
-                    sideA = int.Parse(Console.ReadLine());
+                    while (value <= 0)
+                    {
+                        Console.WriteLine("Incorrect value");
+                        Console.WriteLine("Enter the length of A side of the rectangle");
+                        sideA = int.Parse(Console.ReadLine());
+                    }
+                    this.sideA = value;
                 }
-                    this.sideA = sideA;
             }
 
-            public void SetSideB(int sideB)
+            public int SideB
             {
-                while (sideB <= 0)
+                get => sideB;
+                set
                 {
-                    Console.WriteLine("Incorrect value");
-                    Console.WriteLine("Enter the length of B side of the rectangle");
-                    sideB = int.Parse(Console.ReadLine());
-
+                    while (value <= 0)
+                    {
+                        Console.WriteLine("Incorrect value");
+                        Console.WriteLine("Enter the length of B side of the rectangle");
+                        sideB = int.Parse(Console.ReadLine());
+                    }
+                    this.sideB = value;
                 }
-                this.sideB = sideB;
-            }
-
-            public int GetSideA()
-            {
-                return sideA;
-            }
-
-            public int GetSideB()
-            {
-                return sideB;
             }
 
             public int Area()
             {
-                return sideA * sideB;
+                return SideA * sideB;
             }
         }
 

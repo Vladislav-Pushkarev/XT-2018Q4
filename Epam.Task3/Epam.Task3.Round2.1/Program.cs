@@ -10,7 +10,7 @@ namespace Epam.Task3.Round2._1
     {
         public static bool Compare(Round one, Round two)
         {
-            if (one.Area() > two.Area())
+            if (one.Area > two.Area)
             {
                 return true;
             }

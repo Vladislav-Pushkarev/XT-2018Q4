@@ -10,7 +10,7 @@ namespace Epam.Task1.Square
     {
         public static void PrintSquare(int n)
         {
-            for (int i = 0; i < n; i++)    
+            for (int i = 0; i < n; i++)
             {
 
                 for (int j = 0; j < n; j++)
@@ -31,7 +31,7 @@ namespace Epam.Task1.Square
 
             Console.WriteLine("Enter N");
             n = int.Parse(Console.ReadLine());
-            PrintSquare(n);          
+            PrintSquare(n);
         }
     }
 }

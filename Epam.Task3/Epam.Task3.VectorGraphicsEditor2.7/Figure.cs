@@ -11,9 +11,9 @@ namespace Epam.Task3.VectorGraphicsEditor2._7
         private int coordX;
         private int coordY;
 
-        protected int CoordX { get => this.coordX; set => this.coordX = value; }
+        protected int CoordX { get; set; }
 
-        protected int CoordY { get => this.coordY; set => this.coordY = value; }
+        protected int CoordY { get; set; }
 
         public abstract void Print();
     }
