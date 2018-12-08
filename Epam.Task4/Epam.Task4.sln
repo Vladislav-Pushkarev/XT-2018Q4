@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Task4.Lost3.1", "Epam.Task4.Lost3.1\Epam.Task4.Lost3.1.csproj", "{99627F50-B1A1-45F7-B868-4DA9E685C5F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Task4.WordFrequency3.2", "Epam.Task4.WordFrequency3.2\Epam.Task4.WordFrequency3.2.csproj", "{7BA3552F-F359-45A1-A504-64AA78C118ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99627F50-B1A1-45F7-B868-4DA9E685C5F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99627F50-B1A1-45F7-B868-4DA9E685C5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99627F50-B1A1-45F7-B868-4DA9E685C5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99627F50-B1A1-45F7-B868-4DA9E685C5F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BA3552F-F359-45A1-A504-64AA78C118ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BA3552F-F359-45A1-A504-64AA78C118ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BA3552F-F359-45A1-A504-64AA78C118ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BA3552F-F359-45A1-A504-64AA78C118ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83E486EB-BFAA-4AB3-9708-7426F6882D41}
+	EndGlobalSection
+EndGlobal
