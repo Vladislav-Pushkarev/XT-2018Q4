@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Epam.Task5.CustomSort4._1
+namespace Epam.Task5.CustomSortDemo4._2
 {
-   public class Sort
+    public class Sort
     {
         public static int CompareStrings(string one, string two)
         {
@@ -16,6 +16,22 @@ namespace Epam.Task5.CustomSort4._1
                 if (char.ToLower(one[i]) != char.ToLower(two[i]))
                 {
                     return char.ToLower(one[i]) - char.ToLower(two[i]);
+                }
+            }
+
+            return one.Length - two.Length;
+        }
+
+        public static int CompareStringsByLength(string one, string two)
+        {
+            if (one.Length == two.Length)
+            {
+                for (int i = 0; i < one.Length; i++)
+                {
+                    if (char.ToLower(one[i]) != char.ToLower(two[i]))
+                    {
+                        return char.ToLower(one[i]) - char.ToLower(two[i]);
+                    }
                 }
             }
 
@@ -65,9 +81,9 @@ namespace Epam.Task5.CustomSort4._1
         {
             Console.WriteLine($"\tDemonstration of custom sort. {Environment.NewLine}");
             Console.WriteLine("We have an unsorted string array like this :");
-            Func<string, string, int> func = CompareStrings;
-            
-            string[] unsortedStrungArray = { "greatest", "Albus", "wizard", "Dumbledore" };
+            Func<string, string, int> func = CompareStringsByLength;
+
+            string[] unsortedStrungArray = { "You", "underestimate", "the", "power", "of", "the", "dark", "side" };
 
             for (int i = 0; i < unsortedStrungArray.Length; i++)
             {
@@ -75,7 +91,7 @@ namespace Epam.Task5.CustomSort4._1
             }
 
             Console.WriteLine(Environment.NewLine);
-            Console.WriteLine("------Sorting using the standard string comparison principle------");
+            Console.WriteLine("------Sorting strings by length------");
             CustomQuicksort(unsortedStrungArray, func, 0, unsortedStrungArray.Length - 1);
             Console.WriteLine("And now we've got :");
             for (int i = 0; i < unsortedStrungArray.Length; i++)
