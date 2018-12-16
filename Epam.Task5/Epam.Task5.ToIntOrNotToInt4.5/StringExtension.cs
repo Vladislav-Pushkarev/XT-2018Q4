@@ -21,8 +21,8 @@ namespace Epam.Task5.ToIntOrNotToInt4._5
 
             int i = 0;
             int length = str.Length;
-            List<char> integer = new List<char>();
-            List<char> decim = new List<char>();
+            int integerCount = 0;
+            int decimCount = 0;
             List<char> pwr = new List<char>();
             char firstChar = str[0];
 
@@ -53,13 +53,13 @@ namespace Epam.Task5.ToIntOrNotToInt4._5
 
                     if (com)
                     {
-                        decim.Add(str[i]);
+                        decimCount++;
                         continue;
                     }
 
                     if (!com && !exp)
                     {
-                        integer.Add(str[i]);
+                        integerCount++;
                     }
                 }
                 else if (str[i] == ',')
@@ -119,7 +119,7 @@ namespace Epam.Task5.ToIntOrNotToInt4._5
                 power = power * -1;
             }
 
-            if ((power + integer.Count) > decim.Count)
+            if ((power + integerCount) > decimCount)
             {
                 return true;
             }

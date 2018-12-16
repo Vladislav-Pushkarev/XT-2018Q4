@@ -97,7 +97,7 @@ namespace Epam.Task5.SprtingUnit4._3
                 stopwatch.Start();
                 CustomQuicksort(array, func, left, right);
                 stopwatch.Stop();
-                inTime = $"It took {stopwatch.Elapsed} milliseconds.";
+                inTime = $"It took {stopwatch.Elapsed.TotalMilliseconds} milliseconds.";
                 OnSort();
             }
 
