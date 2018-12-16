@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Task5.SprtingUnit4.3",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Task5.NumberArraySum4.4", "Epam.Task5.NumberArraySum4.4\Epam.Task5.NumberArraySum4.4.csproj", "{24B839C8-AEBF-45C7-9A4C-6028ED096B2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Task5.ToIntOrNotToInt4.5", "Epam.Task5.ToIntOrNotToInt4.5\Epam.Task5.ToIntOrNotToInt4.5.csproj", "{626E09E1-8FC9-481F-AA7E-2B2C9DFC098D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{24B839C8-AEBF-45C7-9A4C-6028ED096B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24B839C8-AEBF-45C7-9A4C-6028ED096B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24B839C8-AEBF-45C7-9A4C-6028ED096B2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{626E09E1-8FC9-481F-AA7E-2B2C9DFC098D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{626E09E1-8FC9-481F-AA7E-2B2C9DFC098D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{626E09E1-8FC9-481F-AA7E-2B2C9DFC098D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{626E09E1-8FC9-481F-AA7E-2B2C9DFC098D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
