@@ -22,7 +22,7 @@ namespace Epam.Task5.ToIntOrNotToInt4._5
             int i = 0;
             int length = str.Length;
             int integerCount = 0;
-            int decimCount = 0;
+            List<char> decim = new List<char>();
             List<char> pwr = new List<char>();
             char firstChar = str[0];
 
@@ -53,7 +53,7 @@ namespace Epam.Task5.ToIntOrNotToInt4._5
 
                     if (com)
                     {
-                        decimCount++;
+                        decim.Add(str[i]);
                         continue;
                     }
 
@@ -108,6 +108,20 @@ namespace Epam.Task5.ToIntOrNotToInt4._5
 
             int power = 0;
             i = 0;
+            int decimCount = 0;
+
+            foreach (char ch in decim)
+            {
+                if (ch == '0')
+                {
+                    decimCount++;
+                }
+            }
+
+            if (decimCount == decim.Count)
+            {
+                decimCount = 0;
+            }
 
             foreach (char ch in pwr)
             {

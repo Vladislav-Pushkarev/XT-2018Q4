@@ -18,6 +18,7 @@ namespace Epam.Task5.ToIntOrNotToInt4._5
             string str6 = "-323";
             string str7 = "323-4324";
             string str8 = "323,43,24";
+            string str9 = "44,000";
             Console.WriteLine("\tDemonstration:");
             Console.WriteLine($"Is there - \"{str1}\" positive integer number? - {str1.ToInt()} ");
             Console.WriteLine($"Is there - \"{str2}\" positive integer number? - {str2.ToInt()} ");
@@ -27,12 +28,13 @@ namespace Epam.Task5.ToIntOrNotToInt4._5
             Console.WriteLine($"Is there - \"{str6}\" positive integer number? - {str6.ToInt()} ");
             Console.WriteLine($"Is there - \"{str7}\" positive integer number? - {str7.ToInt()} ");
             Console.WriteLine($"Is there - \"{str8}\" positive integer number? - {str8.ToInt()} ");
+            Console.WriteLine($"Is there - \"{str9}\" positive integer number? - {str9.ToInt()} ");
 
             while (true)
             {
                 Console.WriteLine("\tEnter 'q' - to quit or ==>\tTry your own number:");
-                string str9 = Console.ReadLine();
-                if (str9 == "q")
+                string str10 = Console.ReadLine();
+                if (str10 == "q")
                 {
                     break;
                 }
