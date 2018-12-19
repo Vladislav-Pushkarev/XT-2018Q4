@@ -9,7 +9,7 @@ namespace Epam.Task5.ICQ4._6
 {
     public static class Program
     {
-        private static int[] testArray = new int[1000];
+        private static int[] testArray = new int[1000000];
         private static int[] result;
         private static List<double> timeAverage = new List<double>();
         private static Stopwatch stopwatch = new Stopwatch();
@@ -75,6 +75,7 @@ namespace Epam.Task5.ICQ4._6
                 PositiveNumbersSearch(testArray);
                 stopwatch.Stop();
                 timeAverage.Add(stopwatch.Elapsed.TotalMilliseconds);
+                stopwatch.Reset();
             }
 
             result = PositiveNumbersSearch(testArray);
@@ -90,6 +91,7 @@ namespace Epam.Task5.ICQ4._6
                 PositiveNumbersSearchUsingDelegate(testArray, Func);
                 stopwatch.Stop();
                 timeAverage.Add(stopwatch.Elapsed.TotalMilliseconds);
+                stopwatch.Reset();
             }
 
             result = PositiveNumbersSearchUsingDelegate(testArray, Func);
@@ -110,6 +112,7 @@ namespace Epam.Task5.ICQ4._6
                     });
                 stopwatch.Stop();
                 timeAverage.Add(stopwatch.Elapsed.TotalMilliseconds);
+                stopwatch.Reset();
             }
 
             result = PositiveNumbersSearchUsingDelegate(
@@ -130,6 +133,7 @@ namespace Epam.Task5.ICQ4._6
                 PositiveNumbersSearchUsingDelegate(testArray, arrItem => arrItem > 0);
                 stopwatch.Stop();
                 timeAverage.Add(stopwatch.Elapsed.TotalMilliseconds);
+                stopwatch.Reset();
             }
 
             result = PositiveNumbersSearchUsingDelegate(testArray, arrItem => arrItem > 0);
@@ -145,6 +149,7 @@ namespace Epam.Task5.ICQ4._6
                 LinqSearch(testArray);
                 stopwatch.Stop();
                 timeAverage.Add(stopwatch.Elapsed.TotalMilliseconds);
+                stopwatch.Reset();
             }
 
             result = LinqSearch(testArray);
@@ -159,7 +164,7 @@ namespace Epam.Task5.ICQ4._6
             Random random = new Random();
             for (int i = 0; i < testArray.Length; i++)
             {
-                testArray[i] = random.Next(-8000, 300);
+                testArray[i] = random.Next(-10000000, 300);
             }
         }
 
