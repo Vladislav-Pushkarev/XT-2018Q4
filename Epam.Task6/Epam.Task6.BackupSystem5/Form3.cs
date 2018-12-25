@@ -14,18 +14,17 @@ namespace Epam.Task6.BackupSystem5
     {
         public Form3()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
-        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+        private void FolderBrowserDialog1_HelpRequest(object sender, EventArgs e)
         {
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            Watcher.stopped = true;
-            Close();
+            Watcher.Stopped = true;
+            this.Close();
         }
     }
 }

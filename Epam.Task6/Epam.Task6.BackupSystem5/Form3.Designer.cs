@@ -34,7 +34,7 @@
             // 
             // folderBrowserDialog1
             // 
-            this.folderBrowserDialog1.HelpRequest += new System.EventHandler(this.folderBrowserDialog1_HelpRequest);
+            this.folderBrowserDialog1.HelpRequest += new System.EventHandler(this.FolderBrowserDialog1_HelpRequest);
             // 
             // button1
             // 
@@ -46,7 +46,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Stop tracking";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Form3
             // 

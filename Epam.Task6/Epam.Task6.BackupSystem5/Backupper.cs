@@ -10,18 +10,26 @@ namespace Epam.Task6.BackupSystem5
 {
     public class Backupper
     {
-        public static string defaultBackupPath = Path.Combine(Directory.GetCurrentDirectory(), "DefaultBackup");
-        public static string BackupPath = Path.Combine(Directory.GetCurrentDirectory(), "FilesBackup");
-        public static Dictionary<string, string> files = new Dictionary<string, string>();
-        public static string targetPath;
+        private static string defaultBackupPath = Path.Combine(Directory.GetCurrentDirectory(), "DefaultBackup");
+        private static string backupPath = Path.Combine(Directory.GetCurrentDirectory(), "FilesBackup");
+        private static Dictionary<string, string> files = new Dictionary<string, string>();
+        private static string targetPath;
+
+        public static string DefaultBackupPath { get => defaultBackupPath; set => defaultBackupPath = value; }
+
+        public static string BackupPath { get => backupPath; set => backupPath = value; }
+
+        public static Dictionary<string, string> Files { get => files; set => files = value; }
+
+        public static string TargetPath { get => targetPath; set => targetPath = value; }
 
         public static void PrepareToWork()
         {
             Console.WriteLine("Preparing...");
-            if (Directory.Exists(defaultBackupPath))
+            if (Directory.Exists(DefaultBackupPath))
             {
-                Directory.Delete(defaultBackupPath, true);
-                Directory.CreateDirectory(defaultBackupPath);
+                Directory.Delete(DefaultBackupPath, true);
+                Directory.CreateDirectory(DefaultBackupPath);
             }
 
             if (Directory.Exists(BackupPath))
@@ -30,9 +38,9 @@ namespace Epam.Task6.BackupSystem5
                 Directory.CreateDirectory(BackupPath);
             }
 
-            if (File.Exists(Logger.fullPath))
+            if (File.Exists(Logger.FullPath))
             {
-                File.Delete(Logger.fullPath);
+                File.Delete(Logger.FullPath);
             }
         }
 
@@ -41,76 +49,75 @@ namespace Epam.Task6.BackupSystem5
             string name;
             string backuppedName;
             string status;
-            using (StreamReader file = new StreamReader(Logger.fullPath))
+            using (StreamReader file = new StreamReader(Logger.FullPath))
             {
-                while ((status = file.ReadLine()) != null) //1
+                while ((status = file.ReadLine()) != null)
                 {
                     if (long.Parse(status) <= recovTime)
                     {
-                        name = file.ReadLine();//2
-                        backuppedName = file.ReadLine();//3
-                        status = file.ReadLine();//4
-                        if (files.ContainsKey(name))
+                        name = file.ReadLine();
+                        backuppedName = file.ReadLine();
+                        status = file.ReadLine();
+                        if (Files.ContainsKey(name))
                         {
-                            files[name] = backuppedName;
+                            Files[name] = backuppedName;
                         }
-
                         else
                         {
-                            files.Add(name, backuppedName);
+                            Files.Add(name, backuppedName);
                         }
-                        
+
                         if (status == "Renamed")
                         {
-
-                            if (files.ContainsKey(backuppedName))
+                            if (Files.ContainsKey(backuppedName))
                             {
-                                files[backuppedName] = name;
+                                Files[backuppedName] = name;
                             }
                             else
                             {
-                                files.Add(backuppedName, name);
+                                Files.Add(backuppedName, name);
                             }
-                            files.Remove(name);
+
+                            Files.Remove(name);
                         }
-                        file.ReadLine();// можно убрать если убрать разделительный астериск в логе
+
+                        file.ReadLine();
                     }
-                    else 
+                    else
                     {
                         break;
                     }
-
                 }
             }
-            
+
             DeleteFiles();
             CopyFromBackup();
         }
 
         public static void CopyFromBackup()
         {
-            foreach(var pair in files)
+            foreach (var pair in Files)
             {
                 string directoryPath = Path.GetDirectoryName(pair.Key);
                 if (!Directory.Exists(directoryPath))
                 {
                     Directory.CreateDirectory(directoryPath);
                 }
+
                 File.Copy(pair.Value, pair.Key, true);
             }
         }
 
         public static void DeleteFiles()
         {
-            foreach (var pair in files.Where(pair2 => pair2.Value == "deleted").ToList())
+            foreach (var pair in Files.Where(pair2 => pair2.Value == "deleted").ToList())
             {
-                files.Remove(pair.Key);
+                Files.Remove(pair.Key);
             }
         }
 
         public static void EventHandle(string fullPath, long time)
         {
-            //string time = DateTime.Now.ToString("yyyyMMddHHmmss");
             string newFileName = CreateFileName(time);
             BackupFile(fullPath, newFileName);
             Logger.Log($"{time}{Environment.NewLine}{fullPath}{Environment.NewLine}{newFileName}" +
@@ -140,31 +147,27 @@ namespace Epam.Task6.BackupSystem5
 
         public static void CopyAll(string fromPath)
         {
-            foreach (string directoryPath in Directory.GetDirectories(fromPath, "*",
-                    SearchOption.AllDirectories))
+            foreach (string directoryPath in Directory.GetDirectories(fromPath, "*", SearchOption.AllDirectories))
             {
-                Directory.CreateDirectory(directoryPath.Replace(fromPath, defaultBackupPath));
+                Directory.CreateDirectory(directoryPath.Replace(fromPath, DefaultBackupPath));
             }
 
-            foreach (string FileDirectory in Directory.GetFiles(fromPath, "*.*",
-                    SearchOption.AllDirectories))
+            foreach (string fileDirectory in Directory.GetFiles(fromPath, "*.*", SearchOption.AllDirectories))
             {
-                string backuppedFile = FileDirectory.Replace(fromPath, defaultBackupPath);
-                files.Add(FileDirectory, backuppedFile);
-                File.Copy(FileDirectory, backuppedFile, true);
+                string backuppedFile = fileDirectory.Replace(fromPath, DefaultBackupPath);
+                Files.Add(fileDirectory, backuppedFile);
+                File.Copy(fileDirectory, backuppedFile, true);
             }
-                
         }
 
-        public static void BackupFile(string fullFileName,string newFileName)
+        public static void BackupFile(string fullFileName, string newFileName)
         {
-                if (!Directory.Exists(BackupPath))
-                {
-                    Directory.CreateDirectory(BackupPath);
-                }
-                File.Copy(fullFileName, newFileName, true);
+            if (!Directory.Exists(BackupPath))
+            {
+                Directory.CreateDirectory(BackupPath);
+            }
+
+            File.Copy(fullFileName, newFileName, true);
         }
-
-
     }
 }

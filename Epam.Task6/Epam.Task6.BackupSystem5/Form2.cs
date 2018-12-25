@@ -15,46 +15,41 @@ namespace Epam.Task6.BackupSystem5
     {
         public Form2()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
-
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-
-                Backupper.targetPath = fbd.SelectedPath;
-                Hide();
+                Backupper.TargetPath = fbd.SelectedPath;
+                this.Hide();
                 try
                 {
                     Backupper.PrepareToWork();
-                    Backupper.CopyAll(Backupper.targetPath);
-                    Watcher.RunWatch(Backupper.targetPath);
-                    Show();
+                    Backupper.CopyAll(Backupper.TargetPath);
+                    Watcher.RunWatch(Backupper.TargetPath);
+                    this.Show();
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message + ex.StackTrace);
                 }
-
             }
-            
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             ActiveForm.Hide();
             Form1 f = new Form1(); 
             f.ShowDialog();
             Console.WriteLine("Your txt files was restored.");
-            Close();
+            this.Close();
         }
     }
 }

@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace Epam.Task6.BackupSystem5
 {
-    class Program
+    public class Program
     {
         [STAThread]
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

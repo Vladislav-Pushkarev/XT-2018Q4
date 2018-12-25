@@ -46,7 +46,7 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(364, 27);
             this.dateTimePicker1.TabIndex = 0;
             this.dateTimePicker1.Value = new System.DateTime(2018, 12, 25, 22, 44, 14, 0);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
             // 
             // button1
             // 
@@ -57,7 +57,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label1
             // 
@@ -67,7 +67,7 @@
             this.label1.Size = new System.Drawing.Size(377, 46);
             this.label1.TabIndex = 3;
             this.label1.Text = "Select date and time using form below";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // Form1
             // 

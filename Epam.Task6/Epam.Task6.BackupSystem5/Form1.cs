@@ -16,10 +16,10 @@ namespace Epam.Task6.BackupSystem5
 
         public Form1()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             DateTime time = dateTimePicker1.Value;
             string message = $"You selected {time.ToString()}. Click 'OK' to confirm.";
@@ -27,25 +27,22 @@ namespace Epam.Task6.BackupSystem5
             recovTime = long.Parse(time.ToString("yyyyMMddHHmmss"));
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-           
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             Backupper.Restore(recovTime);
-            Close();
+            this.Close();
         }
     }
 }
