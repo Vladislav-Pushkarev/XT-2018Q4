@@ -15,6 +15,27 @@ namespace Epam.Task6.BackupSystem5
         public static Dictionary<string, string> files = new Dictionary<string, string>();
         public static string targetPath;
 
+        public static void PrepareToWork()
+        {
+            Console.WriteLine("Preparing...");
+            if (Directory.Exists(defaultBackupPath))
+            {
+                Directory.Delete(defaultBackupPath, true);
+                Directory.CreateDirectory(defaultBackupPath);
+            }
+
+            if (Directory.Exists(BackupPath))
+            {
+                Directory.Delete(BackupPath, true);
+                Directory.CreateDirectory(BackupPath);
+            }
+
+            if (File.Exists(Logger.fullPath))
+            {
+                File.Delete(Logger.fullPath);
+            }
+        }
+
         public static void Restore(long recovTime)
         {
             string name;
@@ -54,7 +75,7 @@ namespace Epam.Task6.BackupSystem5
                         }
                         file.ReadLine();// можно убрать если убрать разделительный астериск в логе
                     }
-                    else
+                    else 
                     {
                         break;
                     }

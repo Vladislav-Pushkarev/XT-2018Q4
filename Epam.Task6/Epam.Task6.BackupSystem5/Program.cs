@@ -17,24 +17,6 @@ namespace Epam.Task6.BackupSystem5
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form2());
-            
-            
-            try
-            {
-
-
-
-                Console.WriteLine("Enter Date and Time of recovery.");
-                string s = Console.ReadLine();
-                s = Console.ReadLine();
-                long parsed = long.Parse(s);
-                long recovTime = parsed;
-                Backupper.Restore(recovTime);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message + e.StackTrace);
-            }
         }
     }
 }

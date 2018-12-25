@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,6 +23,7 @@ namespace Epam.Task6.BackupSystem5
 
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
@@ -29,12 +31,13 @@ namespace Epam.Task6.BackupSystem5
             {
 
                 Backupper.targetPath = fbd.SelectedPath;
-                ActiveForm.Hide();
+                Hide();
                 try
                 {
+                    Backupper.PrepareToWork();
                     Backupper.CopyAll(Backupper.targetPath);
                     Watcher.RunWatch(Backupper.targetPath);
-                    Application.Run(new Form2());
+                    Show();
                 }
                 catch (Exception ex)
                 {
@@ -47,7 +50,11 @@ namespace Epam.Task6.BackupSystem5
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            ActiveForm.Hide();
+            Form1 f = new Form1(); 
+            f.ShowDialog();
+            Console.WriteLine("Your txt files was restored.");
+            Close();
         }
     }
 }

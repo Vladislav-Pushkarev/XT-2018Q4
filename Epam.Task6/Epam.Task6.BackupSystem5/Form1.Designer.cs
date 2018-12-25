@@ -50,21 +50,24 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(150, 186);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(12, 154);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(364, 58);
             this.button1.TabIndex = 2;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(8, 58);
+            this.label1.Location = new System.Drawing.Point(8, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(377, 46);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Choose date and time you wish to backup, and click \"OK\"";
+            this.label1.Text = "Select date and time using form below";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form1
             // 

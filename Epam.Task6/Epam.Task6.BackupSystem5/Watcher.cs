@@ -13,13 +13,12 @@ namespace Epam.Task6.BackupSystem5
         private static FileSystemWatcher watcher;
         private static bool work = false;
         private static string last;
-        //private static Dictionary<DateTime, string> eventBuffer = 
-        // new Dictionary<DateTime, string>();
         private volatile static List<long> timeList = new List<long>();
         private volatile static List<string> pathList = new List<string>();
         private static bool isInterrupted = false;
         private static int defaultDelay = 15;
         private static int summPeriod = defaultDelay;
+        public static bool stopped = false;
 
         private static void RunAndSumm()
         {
@@ -37,9 +36,6 @@ namespace Epam.Task6.BackupSystem5
                         timeList.RemoveAt(0);
                         pathList.RemoveAt(0);
                         Backupper.EventHandle(fullPath, time);
-                     //   if (timeList[0] + 15 > timeList[1])
-                    //    {
-                     //   }
                     }
                     else if (timeList[1] - 15 < timeList[0])
                     {
@@ -85,10 +81,14 @@ namespace Epam.Task6.BackupSystem5
             watcher.Changed += new FileSystemEventHandler(OnChanged);
             watcher.Renamed += new RenamedEventHandler(OnRenamed);
 
-            Console.WriteLine("Press \'q\' to quit.");
+            Console.WriteLine("Tracking...");
+
             Thread thread = new Thread(() => RunAndSumm());
             thread.Start();
-            while (Console.Read() != 'q');
+            Form3 f = new Form3();
+            f.ShowDialog();
+            while (!stopped);
+            Console.WriteLine("Tracking stopped.");
             watcher.EnableRaisingEvents = false;
             summPeriod = 0;
             while (pathList.Count != 0)
