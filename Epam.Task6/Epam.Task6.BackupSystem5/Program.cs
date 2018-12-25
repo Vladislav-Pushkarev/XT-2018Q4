@@ -5,21 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Epam.Task6.BackupSystem5
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
-            long t = DateTime.Now.Millisecond;
-            Logger.CreateLogFile();
-            Console.WriteLine("Enter directory to watch.");
-            string targetPath = Console.ReadLine();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form2());
+            
+            
             try
             {
-                Backupper.CopyAll(@targetPath);
-                Watcher.RunWatch(@targetPath);
+
 
 
                 Console.WriteLine("Enter Date and Time of recovery.");

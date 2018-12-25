@@ -13,6 +13,7 @@ namespace Epam.Task6.BackupSystem5
         public static string defaultBackupPath = Path.Combine(Directory.GetCurrentDirectory(), "DefaultBackup");
         public static string BackupPath = Path.Combine(Directory.GetCurrentDirectory(), "FilesBackup");
         public static Dictionary<string, string> files = new Dictionary<string, string>();
+        public static string targetPath;
 
         public static void Restore(long recovTime)
         {
