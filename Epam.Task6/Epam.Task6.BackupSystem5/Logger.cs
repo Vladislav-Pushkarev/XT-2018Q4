@@ -36,8 +36,6 @@ namespace Epam.Task6.BackupSystem5
                 {
                     sw.WriteLine(message);
                 }
-
-                Console.WriteLine(message);
             }
             catch (Exception e)
             {
