@@ -256,6 +256,7 @@ namespace Epam.Task7.PL.Console
 
             System.Console.WriteLine("\tUser-ID, Name, Age, Date of birth.");
             System.Console.WriteLine(user);
+            System.Console.WriteLine(userLogic.ShowAward(id)); 
         }
 
         private static void AddAward()
@@ -263,7 +264,7 @@ namespace Epam.Task7.PL.Console
             System.Console.WriteLine("Enter USER id");
 
             bool correctUserId = int.TryParse(System.Console.ReadLine(), out int userId);
-            while (!correctUserId)
+             while (!correctUserId)
             {
                 System.Console.WriteLine("Incorrect value, try again.");
                 correctUserId = int.TryParse(System.Console.ReadLine(), out userId);
@@ -278,7 +279,13 @@ namespace Epam.Task7.PL.Console
                 correctAwardId = int.TryParse(System.Console.ReadLine(), out awardId);
             }
 
-            userLogic.AddAward(userId, awardId);
+            if (userLogic.AddAward(userId, awardId))
+            {
+                System.Console.WriteLine("Award successfully added.");
+                return;
+            }
+
+            System.Console.WriteLine("Failed.");
         }
 
         private static void GetAward()
@@ -306,9 +313,13 @@ namespace Epam.Task7.PL.Console
         private static void UserList()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (var entity in userLogic.GetAll())
+            foreach (var userPair in userLogic.GetAll())
             {
-                sb.Append(entity);
+                sb.Append(userPair);
+                sb.Append(Environment.NewLine);
+                sb.Append(userLogic.ShowAward(userPair.Id));
+                sb.Append(Environment.NewLine);
+                sb.Append("------------------------------------------");
                 sb.Append(Environment.NewLine);
             }
 

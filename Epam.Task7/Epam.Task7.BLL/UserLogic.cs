@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using Epam.Task7.BLL.Interface;
 using Epam.Task7.DAL.Interface;
@@ -28,23 +29,38 @@ namespace Epam.Task7.BLL
 
         public bool AddAward(int userId, int awardId)
         {
+            bool result = false;
             User user = this.Get(userId);
             Award award = this.awardLogic.Get(awardId);
-            if (this.awardLogic.Get(awardId) != null)
+            if (user != null && award != null)
             {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(user.Awards);
-                sb.Append('|');
-                sb.Append(award);
-                user.Awards = sb.ToString();
+                result = user.Awards.Add(awardId);
                 this.userDao.Update(user);
                 this.cacheLogic.Delete(ALLUSERSCACHEKEY);
                 string key = "user" + userId;
                 this.cacheLogic.Delete(key);
-                return true;
             }
 
-            return false;
+            return result;
+        }
+
+        public string ShowAward(int userId)
+        {
+            User user = this.Get(userId);
+            if (user.Awards.Count > 0)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("User awards: ");
+                foreach (int awardId in user.Awards)
+                {
+                    Award award = this.awardLogic.Get(awardId);
+                    sb.Append(award.Name + " |");
+                }
+
+                return sb.ToString();
+            }
+
+            return "User have no awards.";
         }
 
         public bool Delete(int id)

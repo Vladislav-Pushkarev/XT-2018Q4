@@ -9,6 +9,8 @@ namespace Epam.Task7.BLL.Interface
 
         bool AddAward(int userId, int awardId);
 
+        string ShowAward(int userId);
+
         bool Delete(int id);
 
         User Get(int id);

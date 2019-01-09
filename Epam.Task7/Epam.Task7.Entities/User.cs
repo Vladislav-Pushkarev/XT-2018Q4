@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Epam.Task7.Entities
 {
     [Serializable]
     public class User
     {
-        public string Awards { get; set; }
+        private HashSet<int> awards = new HashSet<int>();
 
         public int Id { get; set; }
         
@@ -32,11 +30,12 @@ namespace Epam.Task7.Entities
 
         public DateTime DateOfBirth { get; set; }
 
+        public HashSet<int> Awards { get => this.awards; set => this.awards = value; }
+
         public override string ToString()
         {
             return $"{this.Id}, {this.Name}, {this.Age}, {this.DateOfBirth.ToShortDateString()}" +
-                $"{Environment.NewLine} " +
-                $"{Awards}";
+                $"{Environment.NewLine} ";
         }
     }
 }
