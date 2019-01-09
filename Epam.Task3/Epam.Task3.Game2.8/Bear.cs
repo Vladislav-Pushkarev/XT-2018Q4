@@ -8,8 +8,14 @@ namespace Epam.Task3.Game2._8
 {
     public class Bear : Monster
     {
-        public void Move()
+        public override void Eat()
         {
+            throw new NotImplementedException();
+        }
+
+        public override void Move()
+        {
+            throw new NotImplementedException();
         }
     }
 }
