@@ -1,19 +1,19 @@
-﻿using Epam.Task7.BLL;
+﻿using System;
+using System.Configuration;
+using Epam.Task7.BLL;
 using Epam.Task7.BLL.Interface;
 using Epam.Task7.DAL;
 using Epam.Task7.DAL.Interface;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Epam.Task7.Common
 {
     public class DependencyResolver
     {
-        private static IUserDao _userDao;
+        private static IUserDao userDao;
+        private static ICacheLogic cacheLogic;
+        private static IUserLogic userLogic;
+        private static IAwardDao awardDao;
+        private static IAwardLogic awardLogic;
 
         public static IUserDao UserDao
         {
@@ -21,36 +21,35 @@ namespace Epam.Task7.Common
             {
                 var key = ConfigurationManager.AppSettings["DaoUserKey"];
 
-                if (_userDao == null)
+                if (userDao == null)
                 {
                     switch (key.ToLower())
                     {
                         case "memory":
                             {
-                                return _userDao = new UserFakeDao();
+                                return userDao = new UserFakeDao();
                             }
-                        case "txtfile":
+
+                        case "binfile":
                             {
-                                return _userDao = new UserFakeDao(); // поменять
+                                return userDao = new UserBinDao();
                             }
+
                         default:
                             throw new ArgumentException("Cant configurate UserDao");
                     }
                 }
-                return _userDao;
 
+                return userDao;
             }
         }
 
-        private static ICacheLogic _cacheLogic;
+        public static ICacheLogic CacheLogic => cacheLogic ?? (cacheLogic = new CacheLogic());
 
-        public static ICacheLogic CacheLogic => _cacheLogic ?? (_cacheLogic = new CacheLogic());
+        public static IUserLogic UserLogic => userLogic ?? (userLogic = new UserLogic(UserDao, CacheLogic, AwardLogic));
 
-        private static IUserLogic _userLogic;
+        public static IAwardDao AwardDao => awardDao ?? (awardDao = new AwardBinDao());
 
-        public static IUserLogic UserLogic => _userLogic ?? (_userLogic = new UserLogic(UserDao, CacheLogic));
-
-
-
+        public static IAwardLogic AwardLogic => awardLogic ?? (awardLogic = new AwardLogic(AwardDao, CacheLogic));
     }
 }

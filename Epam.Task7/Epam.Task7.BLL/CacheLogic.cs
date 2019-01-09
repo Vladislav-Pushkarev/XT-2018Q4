@@ -1,40 +1,36 @@
-﻿using Epam.Task7.BLL.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Epam.Task7.BLL.Interface;
 
 namespace Epam.Task7.BLL
 {
     public class CacheLogic : ICacheLogic
     {
-        private readonly Dictionary<string, object> _data = new Dictionary<string, object>();
+        private readonly Dictionary<string, object> data = new Dictionary<string, object>();
 
-        public bool Add<T>(string Key, T value)
+        public bool Add<T>(string key, T value)
         {
-            if (_data.ContainsKey(Key))
+            if (this.data.ContainsKey(key))
             {
                 return false;
             }
 
-            _data.Add(Key, value);
+            this.data.Add(key, value);
             return true;
         }
 
-        public T Get<T>(string Key)
+        public T Get<T>(string key)
         {
-            if (!_data.ContainsKey(Key))
+            if (!this.data.ContainsKey(key))
             {
                 return default(T);
             }
 
-            return (T)_data[Key];
+            return (T)this.data[key];
         }
 
-        public bool Delete(string Key)
+        public bool Delete(string key)
         {
-            return _data.Remove(Key);
+            return this.data.Remove(key);
         }
     }
 }

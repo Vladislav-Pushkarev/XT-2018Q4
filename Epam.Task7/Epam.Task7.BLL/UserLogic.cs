@@ -1,80 +1,83 @@
-﻿using Epam.Task7.Entities;
-using Epam.Task7.DAL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
-using Epam.Task7.DAL.Interface;
 using Epam.Task7.BLL.Interface;
+using Epam.Task7.DAL.Interface;
+using Epam.Task7.Entities;
 
 namespace Epam.Task7.BLL
 {
     public class UserLogic : IUserLogic
     {
-        private const string ALL_USERS_CACHE_KEY = "GetAllUsers";
-        private readonly IUserDao _userDao;
-        private readonly ICacheLogic _cacheLogic;
+        private const string ALLUSERSCACHEKEY = "GetAllUsers";
+        private readonly IUserDao userDao;
+        private readonly ICacheLogic cacheLogic;
+        private readonly IAwardLogic awardLogic;
 
-        private static int AgeSet(DateTime date)
+        public UserLogic(IUserDao userDao, ICacheLogic cacheLogic, IAwardLogic awardLogic)
         {
-            DateTime now = DateTime.Now;
-
-            int a = (((now.Year * 100) + now.Month) * 100) + now.Day;
-            int b = (((date.Year * 100) + date.Month) * 100) + date.Day;
-
-            int age = (a - b) / 10000;
-
-            return age;
-        }
-
-        public UserLogic(IUserDao userDao, ICacheLogic cacheLogic)
-        {
-            _userDao = userDao;
-            _cacheLogic = cacheLogic;
+            this.userDao = userDao;
+            this.cacheLogic = cacheLogic;
+            this.awardLogic = awardLogic;
         }
 
         public void Add(User user)
         {
-            int age = AgeSet(user.DateOfBirth);
-            user.Age = age;
-            _userDao.Add(user);
-            _cacheLogic.Delete(ALL_USERS_CACHE_KEY);
+            this.userDao.Add(user);
+            this.cacheLogic.Delete(ALLUSERSCACHEKEY);
         }
 
-        public void Delete(int id)
+        public bool AddAward(int userId, int awardId)
         {
-            _userDao.Delete(id);
-            string key = id.ToString();
-            _cacheLogic.Delete(key);
+            User user = this.Get(userId);
+            Award award = this.awardLogic.Get(awardId);
+            if (this.awardLogic.Get(awardId) != null)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(user.Awards);
+                sb.Append('|');
+                sb.Append(award);
+                user.Awards = sb.ToString();
+                this.userDao.Update(user);
+                this.cacheLogic.Delete(ALLUSERSCACHEKEY);
+                string key = "user" + userId;
+                this.cacheLogic.Delete(key);
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool Delete(int id)
+        {
+            string key = "user" + id;
+            this.cacheLogic.Delete(key);
+            return this.userDao.Delete(id);
         }
 
         public User Get(int id)
         {
-            string key = id.ToString();
-            User result = _cacheLogic.Get<User>(key);
+            string key = "user" + id;
+            User result = this.cacheLogic.Get<User>(key);
             if (result == null)
             {
-                result = _userDao.Get(id);
-                _cacheLogic.Add(key, result);
-                Console.WriteLine("Dao");
+                result = this.userDao.Get(id);
+                this.cacheLogic.Add(key, result);
                 return result;
             }
-            Console.WriteLine("Cache");
+
             return result;
         }
 
         public IEnumerable<User> GetAll()
         {
-            IEnumerable <User> result = _cacheLogic.Get<IEnumerable<User>>(ALL_USERS_CACHE_KEY);
+            IEnumerable<User> result = this.cacheLogic.Get<IEnumerable<User>>(ALLUSERSCACHEKEY);
             if (result == null)
             {
-                result = _userDao.GetAll();
-                _cacheLogic.Add(ALL_USERS_CACHE_KEY, result);
-                Console.WriteLine("Dao");
+                result = this.userDao.GetAll();
+                this.cacheLogic.Add(ALLUSERSCACHEKEY, result);
                 return result;
             }
-            Console.WriteLine("Cache");
+
             return result;
         }
     }

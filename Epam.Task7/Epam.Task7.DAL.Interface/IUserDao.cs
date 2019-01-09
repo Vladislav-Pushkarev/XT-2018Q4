@@ -1,9 +1,5 @@
-﻿using Epam.Task7.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Epam.Task7.Entities;
 
 namespace Epam.Task7.DAL.Interface
 {
@@ -11,7 +7,9 @@ namespace Epam.Task7.DAL.Interface
     {
         void Add(User user);
 
-        void Delete(int id);
+        void Update(User user);
+
+        bool Delete(int id);
 
         User Get(int id);
 

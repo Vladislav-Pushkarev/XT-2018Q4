@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AwardBinDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserFakeDao.cs" />
+    <Compile Include="UserBinDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Epam.Task7.DAL.Interface\Epam.Task7.DAL.Interface.csproj">

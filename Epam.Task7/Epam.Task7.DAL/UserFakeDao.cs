@@ -1,45 +1,45 @@
-﻿using Epam.Task7.Entities;
-using Epam.Task7.DAL.Interface;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Epam.Task7.DAL.Interface;
+using Epam.Task7.Entities;
 
 namespace Epam.Task7.DAL
 {
     public class UserFakeDao : IUserDao
     {
-        private static Dictionary<int, User> _repoUsers = new Dictionary<int, User>();
+        private static Dictionary<int, User> repoUsers = new Dictionary<int, User>();
 
         public void Add(User user)
         {
-            int lastId = _repoUsers.Any() ? _repoUsers.Keys.Max() : 0;
+            int lastId = repoUsers.Any() ? repoUsers.Keys.Max() : 0;
             user.Id = ++lastId;
 
-            _repoUsers.Add(user.Id, user);
+            repoUsers.Add(user.Id, user);
         }
 
-        public void Delete(int id)
+        public void Update(User user)
         {
-            _repoUsers.Remove(id);
+            repoUsers[user.Id] = user;
+        }
+
+        public bool Delete(int id)
+        {
+            return repoUsers.Remove(id);
         }
 
         public User Get(int id)
         {
-            if (_repoUsers.TryGetValue(id, out var user))
+            if (repoUsers.TryGetValue(id, out var user))
             {
                 return user;
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
 
         public IEnumerable<User> GetAll()
         {
-            return _repoUsers.Values;
+            return repoUsers.Values;
         }
     }
 }
