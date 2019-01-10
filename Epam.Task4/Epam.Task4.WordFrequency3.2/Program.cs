@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Epam.Task4.WordFrequency3._2
 {
     public class Program
     {
-        private static char[] splitter = { ' ', '.', ',' };
-        private static string testString = "Microsoft first used the name C# in 1988 for a variant of the" +
+        private static readonly char[] SPLITTER = { ' ', '.', ',' };
+        private static readonly string TESTSTRING = "Microsoft first used the name C# in 1988 for a variant of the" +
             " C language designed for incremental compilation. " +
             "That project was not completed but the name lives on. " +
             "The name \"C sharp\" was inspired by the musical notation where" +
@@ -22,7 +19,7 @@ namespace Epam.Task4.WordFrequency3._2
         public static Dictionary<string, int> StringToDictionary(string inputStr)
         {
             Dictionary<string, int> strDict = new Dictionary<string, int>();
-            string[] stringArray = inputStr.Split(splitter, StringSplitOptions.RemoveEmptyEntries);
+            string[] stringArray = inputStr.Split(SPLITTER, StringSplitOptions.RemoveEmptyEntries);
             Array.Sort(stringArray);
             string tempStr = stringArray[0];
             int count = 1;
@@ -56,7 +53,7 @@ namespace Epam.Task4.WordFrequency3._2
 
         public static void Main(string[] args)
         {
-            Dictionary<string, int> strDict = StringToDictionary(testString);
+            Dictionary<string, int> strDict = StringToDictionary(TESTSTRING);
             PrintResult(strDict);
         }
     }

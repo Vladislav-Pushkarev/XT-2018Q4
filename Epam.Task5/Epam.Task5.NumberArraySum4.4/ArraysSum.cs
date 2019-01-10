@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Epam.Task5.NumberArraySum4._4
+﻿namespace Epam.Task5.NumberArraySum4._4
 {
     public static class ArraysSum
     {
