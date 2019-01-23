@@ -1,0 +1,65 @@
+.count {
+    width: 400px;
+    margin: 20px;
+}
+
+.count label {
+    display: inline-block;
+    width: 20%;
+    margin-right: 2px;
+    text-align: center;
+}
+
+.count input {
+    position: absolute;
+    z-index: -2;
+}
+
+.count span {
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px 10px;
+    width: 80%;
+}
+
+.count span::before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-right: white solid 1px;
+    content: '';
+    height: 55%;
+    width: 100%;
+    transform: skew(20deg);
+    z-index: -1;
+    background: linear-gradient(0deg, #bfbfbf, #dbdbdb);
+}
+
+.count span::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    border-right: white solid 1px;
+    height: 55%;
+    width: 100%;
+    transform: skew(-20deg);
+    z-index: -1;
+    background: linear-gradient(0deg, #dbdbdb, #bfbfbf)
+}
+
+.count input:checked+span {
+    color: white;
+}
+
+#block1 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+#block2 {
+    display: inline-block;
+    background: red;
+}
