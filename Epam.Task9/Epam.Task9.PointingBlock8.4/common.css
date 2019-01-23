@@ -1,0 +1,42 @@
+body {
+    color: white;
+    background: #333;
+}
+
+.pointer {
+    display: table;
+    width: 90%;
+    margin: 60px auto;
+}
+
+.pointer-content {
+    background: #85b7d2;
+    border: 4px solid #bee2f5;
+    position: relative;
+    text-align: center;
+    height: 80px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.pointer-content:after,
+.pointer-content:before {
+    content: '';
+    border: solid transparent;
+    position: absolute;
+    margin-left: -34px;
+    bottom: 80px;
+    width: 0;
+}
+
+.pointer-content:before {
+    border-bottom-color: #bee2f5;
+    border-width: 34px;
+}
+
+.pointer-content:after {
+    border-bottom-color: #85b7d2;
+    border-width: 30px;
+    margin-left: -30px;
+    bottom: 78px;
+}

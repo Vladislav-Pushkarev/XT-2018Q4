@@ -1,0 +1,40 @@
+body {
+    background: #333;
+}
+
+.wrap {
+    height: 200px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.equaliser {
+    display: inline-block;
+    width: 38px;
+    border-radius: 5px 5px 0 0;
+    background: repeating-linear-gradient(180deg, transparent, transparent 17px, #333 17px, #333 20px), linear-gradient(0deg, #ff8d02, #ffce52);
+}
+
+.equaliser1 {
+    height: 50%;
+}
+
+.equaliser2 {
+    height: 20%;
+}
+
+.equaliser3 {
+    height: 80%;
+}
+
+.equaliser4 {
+    height: 100%;
+}
+
+.equaliser5 {
+    height: 50%;
+}
+
+.equaliser6 {
+    height: 30%;
+}

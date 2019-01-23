@@ -1,0 +1,56 @@
+@media all and (max-width: 648px) {
+    header {
+        font-size: 12px;
+    }
+    section {
+        font-size: 10px;
+    }
+}
+
+@media all and (min-width: 648px) {
+    header {
+        font-size: 16px;
+    }
+    section {
+        font-size: 15px;
+    }
+}
+
+@media all and (min-width: 900px) {
+    header {
+        font-size: 22px;
+    }
+    section {
+        font-size: 21px;
+    }
+}
+
+@media all and (min-width: 1400px) {
+    header {
+        font-size: 35px;
+    }
+    section {
+        font-size: 33px;
+    }
+}
+
+.wrap {
+    width: 90%;
+    margin: 20px auto;
+}
+
+header {
+    padding: 1%;
+    color: white;
+    background-color: #008b66;
+}
+
+section {
+    padding: 0 2% 0 2%;
+    width: 70%;
+    margin: -20px 0 0 auto;
+    background-color: #dfe6e1;
+    border-left: 2px white solid;
+    border-top: 2px white solid;
+    overflow: auto;
+}

@@ -1,0 +1,28 @@
+body {
+    background-color: #fff;
+    color: #880000;
+    font-size: 14px;
+    font-family: "Times New Roman", Cambria, Arial, serif;
+    font-weight: 600;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 200px;
+    box-shadow: 5px 5px #880000;
+    border: 1px solid #9b9b9b;
+    background-color: #f9e497;
+    border-radius: 8px;
+}
+
+.list {
+    padding: 0;
+    margin-left: 8px;
+    list-style-type: none;
+}
+
+.list li {
+    padding: 0;
+    margin-right: 5px;
+    margin-bottom: 6px;
+}
