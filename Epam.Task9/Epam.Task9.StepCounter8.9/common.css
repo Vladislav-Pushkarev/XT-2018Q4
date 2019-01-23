@@ -16,50 +16,111 @@
 }
 
 .count span {
+    font-size: 16px;
     position: relative;
     display: inline-block;
-    font-size: 16px;
-    padding: 5px 10px;
     width: 80%;
+    padding: 5px 10px;
 }
 
 .count span::before {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    border-right: white solid 1px;
-    content: '';
-    height: 55%;
-    width: 100%;
-    transform: skew(20deg);
     z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    content: '';
+    transform: skew(20deg);
+    border-right: white solid 1px;
     background: linear-gradient(0deg, #bfbfbf, #dbdbdb);
 }
 
-.count span::after {
-    content: '';
+#block1::before {
     position: absolute;
-    top: 15px;
-    left: 0px;
-    border-right: white solid 1px;
-    height: 55%;
-    width: 100%;
-    transform: skew(-20deg);
+    top: -19.5px;
+    right: 39px;
+    padding-right: 8px;
+    padding-bottom: 16px;
+    content: '';
+    background: linear-gradient(0deg, #bfbfbf, #dbdbdb);
+}
+
+#block1::after {
+    position: absolute;
+    right: 39px;
+    bottom: -11.5px;
+    padding-right: 8px;
+    padding-bottom: 16px;
+    content: '';
+    background: linear-gradient(0deg, #dbdbdb, #bfbfbf);
+}
+
+#block2::before {
+    position: absolute;
+    top: -19.5px;
+    right: -1px;
+    padding-right: 8px;
+    padding-bottom: 16px;
+    content: '';
+    background: linear-gradient(0deg, #bfbfbf, #dbdbdb);
+}
+
+#block2::after {
+    position: absolute;
+    right: -1px;
+    bottom: -11.5px;
+    padding-right: 8px;
+    padding-bottom: 16px;
+    content: '';
+    background: linear-gradient(0deg, #dbdbdb, #bfbfbf);
+}
+
+.count span::after {
+    position: absolute;
     z-index: -1;
-    background: linear-gradient(0deg, #dbdbdb, #bfbfbf)
+    top: 15px;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    content: '';
+    transform: skew(-20deg);
+    border-right: white solid 1px;
+    background: linear-gradient(0deg, #dbdbdb, #bfbfbf);
 }
 
 .count input:checked+span {
     color: white;
 }
 
-#block1 {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
+.count input:checked+span::before {
+    background: linear-gradient(0deg, #64c51e, #ace085);
 }
 
+.count input:checked+span::after {
+    background: linear-gradient(0deg, #ace085, #64c51e);
+}
+
+.count input:checked+span #block2::before {
+    background: linear-gradient(0deg, #64c51e, #ace085);
+}
+
+.count input:checked+span #block2::after {
+    background: linear-gradient(0deg, #ace085, #64c51e);
+}
+
+.count input:checked+span #block1::before {
+    background: linear-gradient(0deg, #64c51e, #ace085);
+}
+
+.count input:checked+span #block1::after {
+    background: linear-gradient(0deg, #ace085, #64c51e);
+}
+
+#block1,
 #block2 {
+    position: relative;
+    top: 0;
+    right: -23px;
     display: inline-block;
-    background: red;
 }
