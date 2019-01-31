@@ -1,0 +1,49 @@
+body {
+    text-align: center;
+}
+
+article {
+    margin: auto;
+    text-align: justify;
+    width: 80%;
+    background-color: antiquewhite;
+    padding: 10px;
+}
+
+article h3 {
+    text-align: center;
+}
+
+#countdown {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.buttons a {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: white;
+    background: #e46c42;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+}
+
+.buttons a {
+    color: white;
+    background: #e46c42;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+}
+
+.buttons a:hover {
+    background: #ca6418;
+}
+
+.buttons a:active {
+    background: #fd7d1e;
+}

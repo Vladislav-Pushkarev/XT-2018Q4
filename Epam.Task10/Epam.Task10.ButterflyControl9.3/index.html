@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="common.css">
+    <title>Butterfly control</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <article class="options">
+            <h3>Available</h3>
+            <select id="available" multiple>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+                <option>Option 5</option>
+            </select>
+        </article>
+
+        <article class="buttons">
+            <button id="allSelected" class="btn">>></button>
+            <button id="toSelected" class="btn">></button>
+            <button id="toAvailable" class="btn"><</button>
+            <button id="allAvailable" class="btn"><<</button>
+        </article>
+
+        <article class="options">
+            <h3 class="header">Selected</h3>
+            <select id="selected" multiple>
+            </select>
+        </article>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
